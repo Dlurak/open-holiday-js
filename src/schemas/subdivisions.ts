@@ -3,7 +3,7 @@ import { isCode, nameSchema } from "./utils";
 
 const subdivisionSchema = z.object({
   code: z.string().min(1),
-  isoCode: z.string().min(1),
+  isoCode: z.string(),
   shortName: z.string().min(1),
   category: z.array(nameSchema),
   name: z.array(nameSchema),
