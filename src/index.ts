@@ -23,7 +23,7 @@ export class Holiday {
   /**
    * Constructs a new instance of the Holiday SDK.
    * @param {HolidayOptions} options - The options for configuring the SDK.
-   * @param {string} options.url - The base URL of the Open Holiday API.
+   * @param {string} options.url - The base URL of the Open Holiday API; defaults to `https://openholidaysapi.org`
    */
   constructor({ url }: HolidayOptions = {}) {
     this.url = serializeUrl(url || "https://openholidaysapi.org");

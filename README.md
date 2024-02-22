@@ -4,7 +4,9 @@ A (inoffical) library to work with the [Open Holiday API](https://www.openholida
 
 ## Installation
 
-I will publish this on NPM
+```bash
+npm install open-holiday-js
+```
 
 ## Usage
 
@@ -18,7 +20,7 @@ console.log(await holiday.getCountries());
 
 ## Documentation
 
-Not available yet but coming soon.
+Documentation is available [here](https://dlurak.github.io/open-holiday-js/).
 
 ## Credits
 
