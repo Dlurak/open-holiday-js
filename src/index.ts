@@ -1,6 +1,8 @@
 import { countryApiResponse } from "./schemas/country";
+import { languagesApiResponse } from "./schemas/languages";
+import { subdivisionsApiResponse } from "./schemas/subdivisions";
 import { requestJson } from "./utils/request";
-import { serializeUrl } from "./utils/url";
+import { createLangQuery, serializeUrl } from "./utils/url";
 
 interface HolidayOptions {
   url?: string;
@@ -19,21 +21,40 @@ export class Holiday {
    * [Official docs](https://www.openholidaysapi.org/en/#countries)
    */
   getCountries(language?: string) {
-    const param = language ? `?languageIsoCode=${language.toUpperCase()}` : "";
+    const param = createLangQuery(language);
+
     const url = `${this.url}/Countries${param}`;
 
     return requestJson(url, countryApiResponse);
   }
 
   /**
-   * Not implemented yet!
+   * Get all languages
+   *
+   * [Official docs](https://www.openholidaysapi.org/en/#languages)
    */
-  getLangs() {}
+  getLangs(language?: string) {
+    const param = createLangQuery(language);
+    const url = `${this.url}/Languages${param}`;
+
+    return requestJson(url, languagesApiResponse);
+  }
 
   /**
-   * Not implemented yet!
+   * Get all subdivisions in a state
+   *
+   * [Official docs](https://www.openholidaysapi.org/en/#subdivisions)
    */
-  getSubdivisions() {}
+  getSubdivisions(country: string, language?: string) {
+    const langParam = createLangQuery(language, false);
+    const countryParam = `countryIsoCode=${country}`;
+
+    const params = `?${langParam}&${countryParam}`;
+
+    const url = `${this.url}/Subdivisions${params}`;
+
+    return requestJson(url, subdivisionsApiResponse);
+  }
 
   /**
    * Not implemented yet!
