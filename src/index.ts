@@ -101,7 +101,7 @@ export class Holiday {
     country: string,
     startDate: Date,
     endDate: Date,
-    subdivision: string,
+    subdivision?: string,
     language?: string,
   ) {
     const paramsArray = [
