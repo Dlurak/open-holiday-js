@@ -11,6 +11,7 @@ const holidayType = z.union([
   z.literal("School"),
   z.literal("BackToSchool"),
   z.literal("EndOfLessons"),
+  z.literal("Optional"),
 ]);
 
 const holidaySchema = z.object({
